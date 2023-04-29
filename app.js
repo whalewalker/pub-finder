@@ -1,6 +1,7 @@
 const form = document.querySelector("#form");
 const locationInput = form.querySelector('input[type="text"]');
 const mealSelect = form.querySelector('select[name="meal"]');
+const searchIcon = form.querySelector('.fa-search');
 const pubTypeCheckboxes = form.querySelectorAll('input[type="checkbox"][name="pub-type"]');
 const menuCheckboxes = form.querySelectorAll('input[type="checkbox"][name="menu"]');
 const hygieneRadios = form.querySelectorAll('input[type="radio"][name="hygiene"]');
@@ -49,7 +50,7 @@ const values = {
 };
 
 function updateValues() {
-    values.search = locationInput.value;
+    values.location = locationInput.value;
     values.meal = mealSelect.value;
 
     values.pubType = [];
@@ -97,5 +98,12 @@ form.addEventListener('submit', (event) => {
     event.preventDefault();
     location.reload();
 });
+
+searchIcon.addEventListener("click", ()=> {
+    values.location = locationInput.value;
+    if(values.location){
+        location.reload();
+    }
+})
 
 
