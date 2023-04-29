@@ -76,7 +76,7 @@ main {
 }
 
 
-.main-section button{
+.main-section button, button[type="submit"]{
     text-transform: capitalize;
     padding: 0.5rem 1rem;
     border: 1px solid var(--main-black);
@@ -86,7 +86,7 @@ main {
     margin-bottom: 1rem;
 }
 
-.main-section button:nth-child(1){
+.main-section .active{
     border: 1px solid var(--main-yellow);
     background-color: var(--main-yellow);
     color: white;
@@ -99,7 +99,7 @@ main {
 
 .main-content iframe{
     width: 100%;
-    height: calc(100vh - var(--nav-height));
+    min-height: 100vh;
     border: none;
 }
 
@@ -171,4 +171,81 @@ select  {
 
 .category, .pub-type, .menu{
     margin-bottom: 0.5rem;
+}
+
+form button[type="submit"]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+    width: 80%;
+}
+
+form button[type="submit"]:hover{
+    border: 1px solid var(--main-yellow);
+    background-color: var(--main-yellow);
+    color: white;
+}
+
+
+
+@media only screen and (max-width: 768px) {
+    /* Reduce font sizes and line height */
+    h5,h6 {
+        font-size: 0.8rem;
+        line-height: 1.8rem;
+    }
+    h6 {
+        font-size: 0.7rem;
+        margin-bottom: 0.3rem;
+    }
+
+    /* Make navigation bar more compact */
+    .nav {
+        padding: 1rem;
+    }
+
+    /* Adjust content layout */
+    .content {
+        flex-wrap: wrap;
+        padding: 0 1rem;
+    }
+    aside {
+        width: 100%;
+        border: none;
+        padding: 0.5rem 0;
+    }
+    main {
+        width: 100%;
+        padding: 0.5rem 0;
+    }
+    .main-section {
+        padding-left: 0;
+    }
+
+    /* Adjust button styles */
+    .main-section button, button[type="submit"] {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Adjust input styles */
+    form input[type="text"], select {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 0.2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    /* Adjust radio button styles */
+    .radio-option label {
+        font-size: 0.8rem;
+    }
+    .radio-option label::before {
+        right: -5px;
+        top: 0;
+        width: 1em;
+        height: 1em;
+    }
 }
